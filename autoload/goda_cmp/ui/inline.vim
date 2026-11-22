@@ -257,6 +257,8 @@ function! s:close_popup(id) abort
 endfunction
 
 " returns [border_left, border_top, border_right, border_bottom]
+" A copy of s:get_border_size() of pum.vim (autoload/pum/popup.vim): this
+" plugin does not need pum.vim. Keep them the same.
 function s:get_border_size(border) abort
   if a:border->type() == v:t_string
     return a:border ==# 'none' ? [0, 0, 0, 0] : [1, 1, 1, 1]
@@ -335,6 +337,10 @@ function! s:check_cmdline() abort
   endif
 endfunction
 
+" goda_cmp#ui#inline#_truncate(), s:truncate(), s:strwidthpart() and
+" s:strwidthpart_reverse() are copies of those of pum.vim
+" (autoload/pum/util.vim): this plugin does not need pum.vim. Keep them the
+" same.
 function goda_cmp#ui#inline#_truncate(str, max, footer_width, separator) abort
   const width = a:str->strwidth()
   if width <= a:max
